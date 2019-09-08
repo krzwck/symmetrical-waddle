@@ -1,0 +1,92 @@
+#allow R to read excel file
+install.packages("readxl")
+install.packages("dplyr")
+
+#Read data file into data frame
+AMZ <- read_xlsx("C:/Users/k/Documents/PortfolioAmazonData.xlsx")
+
+#Pan-EU Plot relationship between Weekly spend and weekly PCOGs
+plot(AMZ$Spend ~ AMZ$PCOGs)
+
+#Pan-EU linear fit of spend and pcogs
+SpendImpact <- lm(formula = AMZ$Spend~AMZ$PCOGs)
+summary(SpendImpact)
+
+#Pan-EU plot the linear regression of spend and pcogs
+abline(SpendImpact)
+
+#Pan-EU plot the residuals
+plot(SpendImpact$residuals)
+
+
+#DE Create filtered data subset to look at just data from Germany (DE)
+amzde <- subset(AMZ, Country=='DE')
+
+#DE Plot relationship between Weekly spend and weekly PCOGs
+plot(amzde$Spend ~ amzde$PCOGs)
+
+#DE linear fit of spend and pcogs
+DESpendImpact <-lm(formula = amzde$Spend~amzde$PCOGs)
+summary(DESpendImpact)
+
+#DE plot the linear regression of spend and pcogs
+abline(DESpendImpact)
+
+
+
+#UK Create filtered data subset to look at just data from the United Kindom (UK)
+amzuk <- subset(AMZ, Country=='UK')
+
+#UK Plot relationship between Weekly spend and weekly PCOGs
+plot(amzuk$Spend ~ amzuk$PCOGs)
+
+#UK linear fit of spend and pcogs
+UKSpendImpact <-lm(formula = amzuk$Spend~amzuk$PCOGs)
+summary(UKSpendImpact)
+
+#UK plot the linear regression of spend and pcogs
+abline(UKSpendImpact)
+
+
+#FR Create filtered data subset to look at just data from France (FR)
+amzfr <- subset(AMZ, Country=='FR')
+
+#FR Plot relationship between Weekly spend and weekly PCOGs
+plot(amzfr$Spend ~ amzfr$PCOGs)
+
+#FR linear fit of spend and pcogs
+FRSpendImpact <-lm(formula = amzfr$Spend~amzfr$PCOGs)
+summary(FRSpendImpact)
+
+#FR plot the linear regression of spend and pcogs
+abline(FRSpendImpact)
+
+
+
+#IT Create filtered data subset to look at just data from Italy (IT)
+amzit <- subset(AMZ, Country=='IT')
+
+#IT Plot relationship between Weekly spend and weekly PCOGs
+plot(amzit$Spend ~ amzit$PCOGs)
+
+#IT linear fit of spend and pcogs
+ITSpendImpact <-lm(formula = amzit$Spend~amzit$PCOGs)
+summary(ITSpendImpact)
+
+#IT plot the linear regression of spend and pcogs
+abline(ITSpendImpact)
+
+
+
+#ES Create filtered data subset to look at just data from Spain (ES)
+amzes <- subset(AMZ, Country=='ES')
+
+#ES Plot relationship between Weekly spend and weekly PCOGs
+plot(amzes$Spend ~ amzes$PCOGs)
+
+#ES linear fit of spend and pcogs
+ESSpendImpact <-lm(formula = amzes$Spend~amzes$PCOGs)
+summary(ESSpendImpact)
+
+#ES plot the linear regression of spend and pcogs
+abline(ESSpendImpact)
